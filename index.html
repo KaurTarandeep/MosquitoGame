@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <div class="grass">
+            <img class="mosquito" src="./imgs/mosquito.png" onclick="hitMosquito()"  alt="img not available"> 
+        </div>
+
+        <div class="game">
+            <h1>Mosquito Game</h1>
+            <h2 class="status"></h2>
+            <button onclick="StartGame()">Start Game</button>
+            <br/> 
+            <h2>Total Hit :  </h2>
+            <h2 class="totalHit" > </h2>
+        </div>
+
+        <script>
+
+            let isGameStart="false";
+            let hitCount=0;
+            
+            function hitMosquito(){
+            
+                if(isGameStart){
+                    hitCount++;                    
+                    document.getElementsByClassName("totalHit")[0].innerText= hitCount;
+                }
+                
+            }    
+            
+        function StartGame(){
+            isGameStart="true";
+            hitCount=0;
+            document.getElementsByClassName("totalHit")[0].innerHTML= hitCount;
+            document.getElementsByClassName("status")[0].innerText="Game Started"
+            let mosquito= document.getElementsByClassName("mosquito")[0];
+
+          let move = setInterval(() => {
+                    let t = Math.floor(Math.random()*550)+1;
+                    let l = Math.floor(Math.random()*600)+1;
+
+                    mosquito.style.left = l+"px";
+                    mosquito.style.top = t+"px";
+                }, 2000);
+               
+             setTimeout(()=>{
+                 clearTimeout(move);
+                isGameStart="false";
+                document.getElementsByClassName("status")[0].innerText="Game Closed";
+             },20000);   
+
+            }
+
+        </script>
+    
+</body>
+</html>

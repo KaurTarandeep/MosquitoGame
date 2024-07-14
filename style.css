@@ -1,0 +1,31 @@
+.grass{
+    position: relative;
+    background-image: url("./imgs/grass.jfif") ;
+    background-repeat: no-repeat;
+    background-size: 100vh;
+    height: 600px;
+    width: 700px;
+}
+
+.mosquito{
+    position: absolute;
+    height: 50px;
+    width: 70px;
+    border-radius: 50px;
+}
+
+.game{
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(238, 211, 236);
+    position: relative;
+    top: -600px;
+    left: 750px;
+    height: 250px;
+    width: 280px;
+}
+button{
+    height: 40px;
+    width: 150px;
+    font-size: x-large;
+}
